@@ -36,7 +36,7 @@ export const Order = () => {
     {/* <div className="alert alert-danger" >{{pageError}}</div> */}
     <div className="offer-details-content">
         <h1>Post an Offer</h1><br>
-        <form [formGroup]="addOfferForm" (ngSubmit)="onSubmit()">
+        <form  (ngSubmit)="onSubmit()">
             <table className="table">
                 <thead>
                     <tr>
@@ -50,17 +50,17 @@ export const Order = () => {
                         <td>
                             <input type="text" formControlName="name" style="display:none">
                             <input type="text" formControlName="name" className="form-control">
-                            <!-- error checking for name -->
-                            <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" className="alert alert-danger">
+//                             <!-- error checking for name -->
+//                             <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" className="alert alert-danger">
 
-                                <div *ngIf="name?.errors?.required">
-                                    name of the offer is required.
-                                </div>
+//                                 <div *ngIf="name?.errors?.required">
+//                                     name of the offer is required.
+//                                 </div>
 
-                                <div *ngIf="name?.errors?.minlength">
-                                    name must be at least 3 characters long.
-                                </div>
-                            </div>
+//                                 <div *ngIf="name?.errors?.minlength">
+//                                     name must be at least 3 characters long.
+//                                 </div>
+//                             </div>
                         </td>
                     </tr>
                     <tr>
@@ -68,16 +68,16 @@ export const Order = () => {
                         <td>
                             <input type="textbox" rows="2" formControlName="description" className="form-control">
                             <!-- error checking for description-->
-                            <div *ngIf="description?.invalid && (description?.dirty || description?.touched)" className="alert alert-danger">
+//                             <div *ngIf="description?.invalid && (description?.dirty || description?.touched)" className="alert alert-danger">
 
-                                <div *ngIf="description?.errors?.required">
-                                    Description is required.
-                                </div>
+//                                 <div *ngIf="description?.errors?.required">
+//                                     Description is required.
+//                                 </div>
 
-                                <div *ngIf="description?.errors?.minlength">
-                                    Description must be at least 10 characters long.
-                                </div>
-                            </div>
+//                                 <div *ngIf="description?.errors?.minlength">
+//                                     Description must be at least 10 characters long.
+//                                 </div>
+//                             </div>
                         </td>
                     </tr>
                     <tr>
@@ -93,7 +93,7 @@ export const Order = () => {
                     </tr>
                 </tbody>
             </table>
-            <button className="btn btn-primary" [disabled]="!addOfferForm.valid"> Submit</button> &nbsp; &nbsp;<a className="btn btn-dark" routerLink="/main">Go back</a>
+            <button className="btn btn-primary" > Submit</button> &nbsp; &nbsp;<a className="btn btn-dark" routerLink="/main">Go back</a>
         </form>
 
     </div>
