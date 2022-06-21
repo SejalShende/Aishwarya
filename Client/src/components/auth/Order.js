@@ -32,124 +32,71 @@ export const Order = () => {
     window.location.pathname = '/rateHotel';
   };
   return (
-    <div className='container'>
-      <div>
-        <ToastContainer position='top-center' />
-      </div>
-      <div>
-        {orderList.length === 0 ? (
-          <h1>No orders Found</h1>
-        ) : (
-          <div>
-            <h1>Order Details</h1>
-            <table className='table'>
-              <thead className='thead-dark'>
-                <th>Order id</th>
-                <th>Product id</th>
-                <th>Amount</th>
-                <th>Address</th>
-                <th>Pincode</th>
-                <th>Phone No</th>
-                <th>Status</th>
-                <th></th>
-              </thead>
-
-              {orderList.map((val, key) => {
-                return (
-                  <tbody >
+    <div className="container">
+    {/* <div className="alert alert-danger" >{{pageError}}</div> */}
+    <div className="offer-details-content">
+        <h1>Post an Offer</h1><br>
+        <form [formGroup]="addOfferForm" (ngSubmit)="onSubmit()">
+            <table className="table">
+                <thead>
                     <tr>
-                      <td>{val.order_id}</td>
-                      <td>{val.product_id}</td>
-                      <td>{val.total}</td>
-                      <td>{val.address}</td>
-                      <td>{val.pincode}</td>
-                      <td>{val.phone_no}</td>
-                      {val.status === 'Delivered' ? (
-                        <td>
-                          <button
-                            className='btn-success'
-                            style={{ border: 'none' }}
-                          >
-                            {val.status}
-                          </button>
-                        </td>
-                      ) : (
-                        <td>
-                          <button
-                            className='btn-warning'
-                            style={{ border: 'none' }}
-                          >
-                            {val.status}
-                          </button>
-                        </td>
-                      )}
-
-                      <td>
-                        <button
-                          className='btn btn-success '
-                          style={{ border: 'none' }}
-                          onClick={() => {
-                            viewProduct(val);
-                          }}
-                        >
-                          View
-                        </button>
-                        {val.status != 'Delivered' ? (
-                          <button
-                            className='btn btn-danger '
-                            style={{ border: 'none' }}
-                            onClick={() => {
-                              cancelOrder(val);
-                            }}
-                          >
-                            cancel
-                          </button>
-                        ) : (
-                          <button
-                            className='btn btn-warning '
-                            style={{ border: 'none' }}
-                            onClick={() => {
-                              rateProduct(val.product_id);
-                            }}
-                          >
-                            Rate
-                          </button>
-                        )}
-                      </td>
+                        <th>Properties</th>
+                        <th>Value</th>
                     </tr>
-                  </tbody>
-                );
-              })}
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Name</td>
+                        <td>
+                            <input type="text" formControlName="name" style="display:none">
+                            <input type="text" formControlName="name" className="form-control">
+                            <!-- error checking for name -->
+                            <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" className="alert alert-danger">
+
+                                <div *ngIf="name?.errors?.required">
+                                    name of the offer is required.
+                                </div>
+
+                                <div *ngIf="name?.errors?.minlength">
+                                    name must be at least 3 characters long.
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td>
+                            <input type="textbox" rows="2" formControlName="description" className="form-control">
+                            <!-- error checking for description-->
+                            <div *ngIf="description?.invalid && (description?.dirty || description?.touched)" className="alert alert-danger">
+
+                                <div *ngIf="description?.errors?.required">
+                                    Description is required.
+                                </div>
+
+                                <div *ngIf="description?.errors?.minlength">
+                                    Description must be at least 10 characters long.
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Category</td>
+                        <td>
+                            <select className="form-control" formControlName="category">
+                                <option>Electronics</option>
+                                <option>Plants</option>
+				<option>Furniture</option>
+				<option>Accessories</option>
+                                </select>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
-          </div>
-        )}
-      </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+            <button className="btn btn-primary" [disabled]="!addOfferForm.valid"> Submit</button> &nbsp; &nbsp;<a className="btn btn-dark" routerLink="/main">Go back</a>
+        </form>
+
     </div>
+</div>
   );
 };

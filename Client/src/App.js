@@ -45,7 +45,7 @@ function App() {
             <Route path='/signin' component={Signin} />
             <Route path='/signup' component={Signup} />
             <Route path='/cart' component={Cart} />
-            <Route path='/orders' component={Order} />
+            <Route path='/addOffer' component={Order} />
             <Route path='/adminOrders' component={UpdateOrders} />
             <Route path='/viewFromOrders' component={ViewFromOrder} />
             <Route path='/addViewProduct' component={AddProductFromHotel} />

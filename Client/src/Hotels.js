@@ -89,7 +89,7 @@ export const Hotels = () => {
             </tbody>
         </table>
         <br></br>
-        <div  className="btn btn-primary">Back</div>
+        <div  className="btn btn-primary" onClick={() =>  window.location.pathname = '/home'}>Back</div>
        
     </div>
 </div>

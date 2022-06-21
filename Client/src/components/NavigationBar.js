@@ -54,7 +54,10 @@ const Styles = styled.div`
     color: grey;
     background-attachment: fixed;
   }
-
+  .log-t{
+    position: absolute;
+    right: 0;
+  }
   .navbar-mainstyle {
     font-size: 20px;
     font-family: sans-serif;
@@ -113,11 +116,11 @@ export const NavigationBar = () => {
                   </Nav.Link>
                 </Nav.Item>
                 <Nav.Link
-                  className='text-danger'
+                  className='text-danger log-t' 
                   href='/signout'
                   onClick={signOut}
                 >
-                  Signout
+                  Signout 
                 </Nav.Link>
               </Nav>
             )}
