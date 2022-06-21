@@ -14,6 +14,8 @@ export function Signin () {
   
   Axios.defaults.withCredentials = true;
   const onSubmit = (e) => {
+    localStorage.setItem('username', 'Rahul');
+    localStorage.setItem('role', '1');
     window.location.pathname = '/home';
     e.preventDefault();
     // Axios.post('http://localhost:3001/users/login', {

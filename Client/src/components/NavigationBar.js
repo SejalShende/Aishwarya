@@ -13,7 +13,8 @@ const divStyle1 = {
 
 const Styles = styled.div`
   .navbar {
-    background-color: rgb(0, 102, 204);
+    background-color: #2196f3!important;
+}
   }
   a,
   .navbar-nav,
@@ -64,6 +65,7 @@ export const NavigationBar = () => {
   const [role, setRole] = useState(localStorage.getItem('role'));
   const [name, setName] = useState(localStorage.getItem('username'));
   const [loggedIn, setLoggedIn] = useState(localStorage.getItem('loggedIn'));
+  
   const [color, setColor] = useState('');
   const signOut = () => {
     Axios.get('http://localhost:3001/users/signout').then((response) => {
