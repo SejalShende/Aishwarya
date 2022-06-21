@@ -68,11 +68,11 @@ export const NavigationBar = () => {
   
   const [color, setColor] = useState('');
   const signOut = () => {
-    Axios.get('http://localhost:3001/users/signout').then((response) => {
+//     Axios.get('http://localhost:3001/users/signout').then((response) => {
       localStorage.clear();
       window.location.pathname = '/signin';
-      console.log(response);
-    });
+//       console.log(response);
+//     });
   };
 
   return (
